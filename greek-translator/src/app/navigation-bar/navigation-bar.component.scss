@@ -1,0 +1,37 @@
+#main {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(37,37,38,1) 50%, rgba(0,0,0,1) 100%);
+}
+
+#translator-card {
+  height: 75%;
+  width: 25%;
+  display: flex;
+  background: linear-gradient(#1f1f1f, #1f1f1f) padding-box,
+  repeating-linear-gradient(45deg, #887023 0% , #574816 20%, #887023 50%) border-box;
+  border-radius: 1em;
+  border: 10px solid transparent;
+  box-shadow: 0 0 15em #adadad;
+  &::before {
+    height: 100%;
+    width: 200%;
+
+
+  }
+  //887023
+  //D4AF37
+  //animation: rotate 5s linear infinite;
+}
+//
+//@keyframes rotate {
+//  0% {
+//    transform: rotate(0deg);
+//  }
+//  100% {
+//    transform: rotate(360deg);
+//  }
+//}
