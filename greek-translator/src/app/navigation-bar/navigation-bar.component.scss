@@ -4,34 +4,99 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  z-index: 6;
   background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(37,37,38,1) 50%, rgba(0,0,0,1) 100%);
 }
 
 #translator-card {
+  caret-color: transparent;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
+  align-items: center;
   height: 75%;
   width: 25%;
-  display: flex;
-  background: linear-gradient(#1f1f1f, #1f1f1f) padding-box,
-  repeating-linear-gradient(45deg, #887023 0% , #574816 20%, #887023 50%) border-box;
   border-radius: 1em;
-  border: 10px solid transparent;
+  overflow: hidden ;
   box-shadow: 0 0 15em #adadad;
-  &::before {
-    height: 100%;
-    width: 200%;
+}
 
+#translator-card > * {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
 
-  }
+#background-border {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  border-radius: inherit;
+  position: relative;
   //887023
   //D4AF37
-  //animation: rotate 5s linear infinite;
+
+
+  &::before,
+  &::after, {
+    content: '';
+    width: 100%;
+    height: 0;
+    padding-left: 200%;
+    padding-bottom: 300%;
+    background: linear-gradient(45deg, #887023 0% , #574816 10%, #887023 20%);
+    border-radius: inherit;
+    z-index: 5;
+    position: absolute;
+    animation: rotate 3s 0s infinite alternate;
+  }
+  &::after {
+    background: linear-gradient(45deg, #D4AF37 0% , #574816 20%, #D4AF37 50%);
+    animation: rotate 3s -3s infinite alternate;
+  }
 }
-//
-//@keyframes rotate {
-//  0% {
-//    transform: rotate(0deg);
-//  }
-//  100% {
-//    transform: rotate(360deg);
-//  }
-//}
+
+@keyframes rotate {
+  0% {
+    opacity: 1.0;
+    transform: rotate(0deg);
+    top: -40%;
+    left: -65%;
+  }
+  100% {
+    opacity: 0.0;
+    transform: rotate(360deg);
+    top: -40%;
+    left: -65%;
+  }
+}
+
+#card-body {
+  height: calc(100% - 1em);
+  width: calc(100% - 1em);
+  background: #1c1c1c;
+  border-radius: inherit;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 10%;
+}
+
+.card-content {
+  --border-size: 5px;
+  border: var(--border-size) solid #243d33;
+}
+
+.card-footer {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#to-translate {
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+  border-bottom: none;
+}
